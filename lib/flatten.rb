@@ -1,6 +1,8 @@
 # encoding: utf-8
 
 require 'flatten/version'
+require 'flatten/string'
+require 'flatten/hash'
 require 'flatten/utility_methods'
 require 'flatten/guard_methods'
 require 'flatten/separator'

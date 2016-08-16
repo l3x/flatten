@@ -3,26 +3,26 @@
 require 'set'
 
 module Flatten
-  module Deprecations
-    class << self
-      def deprecate(message, target)
-        @deprecations ||= Set.new
-        msg = "Flatten: #{message} is deprecated " +
-              "and will be removed in #{target} (at #{external_callpoint})"
-        warn(msg) if @deprecations.add?(msg)
-      end
+	module Deprecations
+		class << self
+			def deprecate(message, target)
+				@deprecations ||= Set.new
+				msg = "Flatten: #{message} is deprecated " +
+					"and will be removed in #{target} (at #{external_callpoint})"
+				warn(msg) if @deprecations.add?(msg)
+			end
 
-      private
+			private
 
-      def external_callpoint
-        caller.drop_while { |loc| loc['lib/flatten/'] }.first
-      end
-    end
+			def external_callpoint
+				caller.drop_while { |loc| loc['lib/flatten/'] }.first
+			end
+		end
 
-    private
+		private
 
-    def deprecate(message, target)
-      Deprecations.deprecate(message, target)
-    end
-  end
+		def deprecate(message, target)
+			Deprecations.deprecate(message, target)
+		end
+	end
 end
