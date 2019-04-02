@@ -1,5 +1,5 @@
 class Hash
-	def smash
-		Flatten(self)
+	def smash(options = {})
+		Flatten(self, options)
 	end
 end
